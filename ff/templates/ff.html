@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>  
+  <link rel="icon" href="/Users/pratyushgoel/Downloads/MV5BNDgwNTg5NDk2NV5BMl5BanBnXkFtZTgwMjgxNzU5MTE_._V1_-removebg-preview.png" type="image/x-icon">
+  <title>Fading Fragments</title>
+  <style>
+    body {
+      background-color: black;
+      margin: 0; /* Remove default body margin */
+      padding: 0; /* Remove default body padding */
+    }
+    table {
+      width: 100%;
+      border-collapse: separate;      table-layout: fixed;
+      border-spacing: 10px; /* Fix the table layout */
+    }
+    th, td {
+      padding: 8px;
+      border: none; /* Remove borders */
+    }
+    .video-cell {
+      width: 200px;
+      height: 150px;
+      position: relative;
+      padding: 0; /* Remove padding */
+      border-radius: 25px; /* Add border-radius to make the boundaries curved */
+      overflow: hidden; /* Ensure content stays within the rounded boundaries */
+    }
+    .video-cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .video-cell iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+      color: #F8F8FF;
+      font-family: 'Nothing You Could Do', sans-serif; /* Apply Montserrat font family */
+      font-weight: 400;
+    }
+    
+    h2 {
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      color: #F8F8FF;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: lighter;
+      font-size:medium;
+      cursor: pointer;
+    }
+    a {
+      text-decoration: none; /* Remove underline from anchor tag */
+    }
+    tr:not(:last-child) {
+      padding: 10px;    
+    }
+    
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Nothing You Could Do:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  
+</head>
+<body>
+
+  <a href="ff.html">
+    <h1>Fading Fragments</h1>
+  </a>
+
+  <a href="low-angle.html">
+    <h2>LOW ANGLE</h2>
+  </a>
+  
+
+
+  <table>
+    {% for row in range(num_rows) %}
+    <tr>
+      {% for i in range(row * num_gifs + 1, (row + 1) * num_gifs + 1) %}
+        <td class="video-cell">
+          <img src="https://fadingfragments.s3.ap-south-1.amazonaws.com/{{ i }}.gif" alt="GIF">      
+        </td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </table>
+
+</body>
+</html>
